@@ -203,7 +203,6 @@ public class BST<Key extends Comparable<Key>, Value> {
      * @return a multi-line string with the pretty ascii picture of the tree.
      */
     public String prettyPrintKeys() {
-        //TODO fill in the correct implementation.
         if (isEmpty() ) {
             return "-null";
         }

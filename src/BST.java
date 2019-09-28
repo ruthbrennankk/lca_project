@@ -124,4 +124,13 @@ public class BST<Key extends Comparable<Key>, Value> {
         return x;
     }
 
+    public Node findLCA(Key one, Key two) {
+        return LCA(root,one,two);
+    }
+
+    private Node LCA(Node node, Key one, Key two) {
+        //TODO
+        return null;
+    }
+
 }

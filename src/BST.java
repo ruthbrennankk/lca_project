@@ -83,76 +83,6 @@ public class BST<Key extends Comparable<Key>, Value> {
     }
 
     /**
-     * Tree height.
-     *
-     * Asymptotic worst-case running time using Theta notation: N
-     * It loops recursively through the entire tree once to get the height so for a tree of height N the runtime is N
-     *
-     * @return the number of links from the root to the deepest leaf.
-     *
-     * Example 1: for an empty tree this should return -1.
-     * Example 2: for a tree with only one node it should return 0.
-     * Example 3: for the following tree it should return 2.
-     *   B
-     *  / \
-     * A   C
-     *      \
-     *       D
-     */
-    public int height() {
-        if ( !isEmpty() ) {
-            return getHeight(root);
-        }
-        return -1;
-    }
-
-    public int getHeight(Node node) {
-        if (node == null) {
-            return -1;
-        }
-        int leftSide = getHeight(node.left);
-        int rightSide = getHeight(node.right);
-
-        if (leftSide > rightSide) {
-            return leftSide + 1;
-        } else {
-            return rightSide + 1;
-        }
-    }
-
-    /**
-     * Median key.
-     * If the tree has N keys k1 < k2 < k3 < ... < kN, then their median key 
-     * is the element at position (N+1)/2 (where "/" here is integer division)
-     *
-     * @return the median key, or null if the tree is empty.
-     */
-    public Key median() {
-        if (isEmpty()) return null;
-        int index = (this.size()-1)/2;
-        Node x = median(root, index);
-        return x.key;
-    }
-    
-    /*private Node median(Node x, int key) {
-    	if (x==null) return null;
-    	int t = size(x.left);
-    	if (t>key && x.left!=null) return median(x.left, key);
-    	if (t<key && x.right!=null) return median(x.right, key);
-    	else return x;
-    }*/
-
-    private Node median(Node x, int index) {
-        if (x == null) return null;
-        int size = size(x.left);
-        if      (size  > index) return median(x.left, index);
-        else if (size  < index) return median(x.right, index-size-1);
-        else return x;
-    }
-
-
-
-    /**
      * Print all keys of the tree in a sequence, in-order.
      * That is, for each node, the keys in the left subtree should appear before the key in the node.
      * Also, for each node, the keys in the right subtree should appear before the key in the node.
@@ -195,29 +125,6 @@ public class BST<Key extends Comparable<Key>, Value> {
         string += ")";
         return string;
 
-    }
-
-    /**
-     * Pretty Printing the tree. Each node is on one line -- see assignment for details.
-     *
-     * @return a multi-line string with the pretty ascii picture of the tree.
-     */
-    public String prettyPrintKeys() {
-        if (isEmpty() ) {
-            return "-null";
-        }
-        String toPrint="";
-        String prefix ="";
-
-        return prettyPrint(root, toPrint, prefix);
-    }
-
-    private String prettyPrint(Node node, String toPrint, String prefix) {
-        if (node == null) {
-            return prefix + "-null\n";
-        }
-        toPrint += prefix + "-" + node.key + "\n" + prettyPrint(node.left, toPrint, prefix + " |") + prettyPrint(node.right, toPrint, prefix + "  ");
-        return toPrint;
     }
 
     /**

@@ -4,9 +4,6 @@ import java.util.NoSuchElementException;
 public class BST<Key extends Comparable<Key>, Value> {
     private Node root;             // root of BST
 
-    /**
-     * Private node class.
-     */
     private class Node {
         private Key key;           // sorted by key
         private Value val;         // associated data
@@ -32,24 +29,10 @@ public class BST<Key extends Comparable<Key>, Value> {
         else return x.N;
     }
 
-    /**
-     *  Search BST for given key.
-     *  Does there exist a key-value pair with given key?
-     *
-     *  @param key the search key
-     *  @return true if key is found and false otherwise
-     */
     public boolean contains(Key key) {
         return get(key) != null;
     }
 
-    /**
-     *  Search BST for given key.
-     *  What is the value associated with given key?
-     *
-     *  @param key the search key
-     *  @return value associated with the given key if found, or null if no such key exists.
-     */
     public Value get(Key key) { return get(root, key); }
 
     private Value get(Node x, Key key) {
@@ -60,13 +43,6 @@ public class BST<Key extends Comparable<Key>, Value> {
         else              return x.val;
     }
 
-    /**
-     *  Insert key-value pair into BST.
-     *  If key already exists, update with new value.
-     *
-     *  @param key the key to insert
-     *  @param val the value associated with key
-     */
     public void put(Key key, Value val) {
         if (val == null) { delete(key); return; }
         root = put(root, key, val);
@@ -82,27 +58,6 @@ public class BST<Key extends Comparable<Key>, Value> {
         return x;
     }
 
-    /**
-     * Print all keys of the tree in a sequence, in-order.
-     * That is, for each node, the keys in the left subtree should appear before the key in the node.
-     * Also, for each node, the keys in the right subtree should appear before the key in the node.
-     * For each subtree, its keys should appear within a parenthesis.
-     *
-     * Example 1: Empty tree -- output: "()"
-     * Example 2: Tree containing only "A" -- output: "(()A())"
-     * Example 3: Tree:
-     *   B
-     *  / \
-     * A   C
-     *      \
-     *       D
-     *
-     * output: "((()A())B(()C(()D())))"
-     *
-     * output of example in the assignment: (((()A(()C()))E((()H(()M()))R()))S(()X()))
-     *
-     * @return a String with all keys in the tree, in order, parenthesized.
-     */
     public String printKeysInOrder() {
         String toPrint = "(";
         if (!isEmpty())
@@ -127,14 +82,6 @@ public class BST<Key extends Comparable<Key>, Value> {
 
     }
 
-    /**
-     * Deteles a key from a tree (if the key is in the tree).
-     * Note that this method works symmetrically from the Hibbard deletion:
-     * If the node to be deleted has two child nodes, then it needs to be
-     * replaced with its predecessor (not its successor) node.
-     *
-     * @param key the key to delete
-     */
     public void delete(Key key) {
         root = delete(root, key);
     }

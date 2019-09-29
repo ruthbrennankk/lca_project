@@ -133,8 +133,20 @@ public class BST<Key extends Comparable<Key>, Value> {
     }
 
     private Node LCA(Node node, Value one, Value two) {
-        //TODO
-        return null;
+        
+        if (node == null)
+            return null;
+
+        if (node.val == one || node.val == two)
+            return node;
+
+        Node left_lca = LCA(node.left, one, two);
+        Node right_lca = LCA(node.right, one, two);
+
+        if (left_lca!=null && right_lca!=null)
+            return node;
+
+        return (left_lca != null) ? left_lca : right_lca;
     }
 
 }

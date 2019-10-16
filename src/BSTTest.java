@@ -104,6 +104,13 @@ public class BSTTest
         assertEquals("Getting the root from branches", "7", bst.findLCA(8,5).toString());
         assertEquals("Getting the root of a sub branch", "3", bst.findLCA(2,6).toString());
         assertEquals("Getting the root of a sub branch using said root", "3", bst.findLCA(3,1).toString());
+        assertEquals("Testing value one not in tree", "7", bst.findLCA(9,7).toString());
+        assertEquals("Testing value two not in tree", "7", bst.findLCA(7,9).toString());
+        assertNull("Testing both values not in tree", bst.findLCA(9,10));
+        assertEquals("Testing same value", "7", bst.findLCA(7,7).toString());
+
+
+
     }
 
 }

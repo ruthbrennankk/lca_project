@@ -29,10 +29,6 @@ public class BST<Key extends Comparable<Key>, Value> {
         else return x.N;
     }
 
-    public boolean contains(Key key) {
-        return get(key) != null;
-    }
-
     public Value get(Key key) { return get(root, key); }
 
     private Value get(Node x, Key key) {

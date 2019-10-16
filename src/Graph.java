@@ -1,8 +1,10 @@
 import java.util.*;
 
-class Graph {
-    int V; // No. of vertices 
 
+
+class Graph {
+
+    int V; // No. of vertices
     List<Integer> adjListArray[];
 
     public Graph(int V) {
@@ -25,8 +27,14 @@ class Graph {
 
     }
 
-    public void findLCA() {
+    public void findLCA(int one, int two) {
         //TODO
+        // Reverse adj list to a parent list
+        // TODO work out depth for all ancestors for one
+        // TODO work out depth for lal ancestors for two
+        // TODO calculate total depth
+            //note themselves = 0 (stored as -1)
+            //any 0 store -1 (not ancestor)
 
     }
 

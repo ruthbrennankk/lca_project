@@ -80,27 +80,11 @@ class Graph {
             // work out depth for all ancestors for x
             int[] x_depths = depths(x, parentListArray);
 
-            //print out
-            System.out.println("x depths");
-            for (int i=0; i<V; i++) {
-                System.out.println(i + " = " + x_depths[i]);
-            }
-
             // work out depth for lal ancestors for y
             int[] y_depths = depths(y, parentListArray);
-            //print out
-            System.out.println("y depths");
-            for (int i=0; i<V; i++) {
-                System.out.println(i + " = " + y_depths[i]);
-            }
 
             // calculate total depth use that to find lacs
             int lcas[] = getLcas(x_depths,y_depths);
-            //print out
-            System.out.println("LCAs");
-            for (int i=0; i<lcas.length; i++) {
-                System.out.println(i + " = " + lcas[i]);
-            }
 
             return lcas;
         }
@@ -136,10 +120,6 @@ class Graph {
                 lcas = Arrays.copyOf(lcas, lcas.length + 1);
                 lcas[lcas.length - 1] = i;
             }
-        }
-        System.out.println("total depths");
-        for (int i=0; i<total_depths.length; i++) {
-            System.out.println(i + " = " + total_depths[i]);
         }
 
         return lcas;

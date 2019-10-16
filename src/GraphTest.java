@@ -53,8 +53,8 @@ public class GraphTest {
 
         //assertEquals("one is lca but not parent",tester, graph.findLCA(0,3));
         temp = graph.findLCA(0,3);
-        assertEquals("two parent of one - length",tester.length, temp.length);
-        assertEquals("two parent of one",tester[0], temp[0]);
+        assertEquals("one is lca but not parent - length",tester.length, temp.length);
+        assertEquals("one is lca but not parent",tester[0], temp[0]);
 
         //assertEquals("two is lca but not parent",tester, graph.findLCA(4,1));
 
@@ -75,7 +75,10 @@ public class GraphTest {
               1 - 5
 
         tester = new int[]{1,2};
-        assertEquals("Two LCA",tester, graph.findLCA(4,5));
+        //assertEquals("Two LCA",tester, graph.findLCA(4,5));
+        temp = graph.findLCA(0,3);
+        assertEquals("two parent of one - length",tester.length, temp.length);
+        assertEquals("two parent of one",tester[0], temp[0]);
         //More than two LCA
         */
     }

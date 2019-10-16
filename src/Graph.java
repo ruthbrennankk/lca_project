@@ -131,6 +131,7 @@ class Graph {
             if (total_depths[i] < lca_depth && total_depths[i] != -1) {
                 lcas = new int[1];
                 lcas[0] = i;
+                lca_depth = total_depths[i];
             } else if (total_depths[i] == lca_depth) {
                 lcas = Arrays.copyOf(lcas, lcas.length + 1);
                 lcas[lcas.length - 1] = i;

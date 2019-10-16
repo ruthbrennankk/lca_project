@@ -78,11 +78,35 @@ public class GraphTest {
               1 - 5
         */
 
-        tester = new int[]{1,2};
-        //assertEquals("Two LCA",tester, graph.findLCA(4,5));
+        tester = new int[]{1};
+        //assertEquals("one lca",tester, graph.findLCA(4,5));
         temp = graph.findLCA(4,5);
         assertEquals("two parent of one - length",tester.length, temp.length);
         assertEquals("two parent of one",tester[0], temp[0]);
+
+        //two LCAs
+        graph = new Graph (6);
+        graph.addEdge(0,1);
+        graph.addEdge(0,2);
+        graph.addEdge(1,3);
+        graph.addEdge(1,4);
+        graph.addEdge(2,3);
+        graph.addEdge(2,4);
+
+        /*
+              2 ----- 3
+             / \     /
+            0   \  /
+             \ / \
+              1 - 4
+        */
+        tester = new int[]{1,2};
+        //assertEquals("Two LCA",tester, graph.findLCA(3,4));
+        temp = graph.findLCA(3,4);
+        assertEquals("two parent of one - length",tester.length, temp.length);
+        assertEquals("two parent of one",tester[0], temp[0]);
+        assertEquals("two parent of one",tester[1], temp[1]);
+
         //More than two LCA
 
     }

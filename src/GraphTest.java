@@ -26,12 +26,12 @@ public class GraphTest {
         assertNull("Neither one or two in graph", graph.findLCA(5,4));
 
         int[] tester = new int[]{0};
+        int[] temp = null;
 
-
-
+/*
 
         //assertEquals("one parent of two",tester, graph.findLCA(1,2));
-        int[] temp = graph.findLCA(0,2);
+        temp = graph.findLCA(0,2);
         assertEquals("one parent of two - length",tester.length, temp.length);
         assertEquals("one parent of two",tester[0], temp[0]);
 
@@ -49,15 +49,18 @@ public class GraphTest {
                 1
                   \
                     3
-        */
+
 
         //assertEquals("one is lca but not parent",tester, graph.findLCA(0,3));
         temp = graph.findLCA(0,3);
         assertEquals("one is lca but not parent - length",tester.length, temp.length);
         assertEquals("one is lca but not parent",tester[0], temp[0]);
 
-        //assertEquals("two is lca but not parent",tester, graph.findLCA(4,1));
-
+        //assertEquals("two is lca but not parent",tester, graph.findLCA(3,0));
+        temp = graph.findLCA(3,0);
+        assertEquals("two is lca but not parent - length",tester.length, temp.length);
+        assertEquals("two is lca but not parent",tester[0], temp[0]);
+*/
         graph = new Graph (6);
         graph.addEdge(0,1);
         graph.addEdge(0,2);
@@ -73,14 +76,15 @@ public class GraphTest {
             0   \  /
              \ / \
               1 - 5
+        */
 
         tester = new int[]{1,2};
         //assertEquals("Two LCA",tester, graph.findLCA(4,5));
-        temp = graph.findLCA(0,3);
+        temp = graph.findLCA(4,5);
         assertEquals("two parent of one - length",tester.length, temp.length);
         assertEquals("two parent of one",tester[0], temp[0]);
         //More than two LCA
-        */
+
     }
 
 }

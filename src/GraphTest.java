@@ -103,11 +103,21 @@ public class GraphTest {
         tester = new int[]{1,2};
         //assertEquals("Two LCA",tester, graph.findLCA(3,4));
         temp = graph.findLCA(3,4);
-        assertEquals("two parent of one - length",tester.length, temp.length);
-        assertEquals("two parent of one",tester[0], temp[0]);
-        assertEquals("two parent of one",tester[1], temp[1]);
+        assertEquals("Two LCA - length",tester.length, temp.length);
+        assertEquals("Two LCA",tester[0], temp[0]);
+        assertEquals("Two LCA",tester[1], temp[1]);
 
         //More than two LCA
+        graph.addEdge(1,5);
+        graph.addEdge(5,3);
+        graph.addEdge(5,4);
+        tester = new int[]{1,2,5};
+        //assertEquals("Two LCA",tester, graph.findLCA(3,4));
+        temp = graph.findLCA(3,4);
+        assertEquals("More than two LCA",tester.length, temp.length);
+        assertEquals("More than two LCA",tester[0], temp[0]);
+        assertEquals("tMore than two LCA",tester[1], temp[1]);
+        assertEquals("tMore than two LCA",tester[2], temp[2]);
 
     }
 

@@ -9,18 +9,40 @@ class GraphTest {
 
     @Test
     public void testFindLCA() {
-        //TODO
-        //NUll Graph
-        //No LCA
-        //One not part of graph
-        //Two not part of graph
-        //Neither one or two in graph
+        Graph graph = new Graph(0);
+        assertNull("Checking with empty Graph",graph.findLCA(1,2));
+        graph = new Graph(4);
+        graph.addEdge(1,3);
+        graph.addEdge(1,2);
+        /*
+               3
+             /
+            1
+              \
+                2
+         */
+        assertNull("Checking one not in graph", graph.findLCA(4,1));
+        assertNull("Checking two not in graph", graph.findLCA(1,4));
+        assertNull("Neither one or two in graph", graph.findLCA(5,4));
 
-        //one parent of two
-        //two parent of one
-        //one is lca but not parent
-        //two is lca but not parent
-        Graph graph = new Graph (6);
+        int[] tester = new int[]{1};
+        assertEquals("one parent of two",tester, graph.findLCA(1,2));
+        assertEquals("two parent of one",tester, graph.findLCA(2,1));
+
+        graph.addEdge(2,4);
+         /*
+               3
+             /
+            1
+              \
+                2
+                  \
+                    4
+         */
+        assertEquals("one is lca but not parent",tester, graph.findLCA(1,4));
+        assertEquals("two is lca but not parent",tester, graph.findLCA(4,1));
+
+        graph = new Graph (6);
         graph.addEdge(0,1);
         graph.addEdge(0,2);
         graph.addEdge(1,4);
@@ -36,10 +58,8 @@ class GraphTest {
              \ / \
               1 - 5
          */
-        //Only 1 LCA
-
-        //Two LCA
-
+        tester = new int[]{1,2};
+        assertEquals("Two LCA",tester, graph.findLCA(4,5));
         //More than two LCA
     }
 

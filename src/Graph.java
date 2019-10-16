@@ -27,7 +27,7 @@ class Graph {
 
     }
 
-    public void findLCA(int one, int two) {
+    public int[] findLCA(int one, int two) {
         //TODO
         // Reverse adj list to a parent list
         // TODO work out depth for all ancestors for one
@@ -35,7 +35,7 @@ class Graph {
         // TODO calculate total depth
             //note themselves = 0 (stored as -1)
             //any 0 store -1 (not ancestor)
-
+        return null;
     }
 
 

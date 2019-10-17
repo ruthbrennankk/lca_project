@@ -107,6 +107,8 @@ public class BSTTest
         assertEquals("Testing value one not in tree", "7", bst.findLCA(9,7).toString());
         assertEquals("Testing value two not in tree", "7", bst.findLCA(7,9).toString());
         assertNull("Testing both values not in tree", bst.findLCA(9,10));
+        assertNull("Testing one value not in tree", bst.findLCA(9,7));
+        assertNull("Testing other value not in tree", bst.findLCA(7,10));
         assertEquals("Testing same value", "7", bst.findLCA(7,7).toString());
 
 

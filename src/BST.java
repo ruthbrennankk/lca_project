@@ -1,7 +1,7 @@
 
 import java.util.NoSuchElementException;
 
-public class BST<Key extends Comparable<Key>, Value> {
+public class BST<Key extends Comparable<Key>, Value extends Comparable<Value>> {
     private Node root;             // root of BST
 
     private class Node {
@@ -29,15 +29,16 @@ public class BST<Key extends Comparable<Key>, Value> {
         else return x.N;
     }
 
-    public Value get(Key key) { return get(root, key); }
+    public Key get(Value val) { return get(root, val); }
 
-    private Value get(Node x, Key key) {
+    private Key get(Node x, Value val) {
         if (x == null) return null;
-        int cmp = key.compareTo(x.key);
-        if      (cmp < 0) return get(x.left, key);
-        else if (cmp > 0) return get(x.right, key);
-        else              return x.val;
+        int cmp = val.compareTo(x.val);
+        if      (cmp < 0) return get(x.left, val);
+        else if (cmp > 0) return get(x.right, val);
+        else              return x.key;
     }
+
 
     public void put(Key key, Value val) {
         if (val == null) { delete(key); return; }
@@ -121,9 +122,12 @@ public class BST<Key extends Comparable<Key>, Value> {
     }
 
     public Value findLCA(Value one, Value two) {
-        Node tmp = LCA(root,one,two);
-        if (tmp != null) {
-            return tmp.val;
+        if (one != two && this.get(one) != null && this.get(two) != null && !this.isEmpty()){
+            System.out.println(one + " " + two);
+            Node tmp = LCA(root, one, two);
+            if (tmp != null) {
+                return tmp.val;
+            }
         }
         return null;
     }
@@ -139,8 +143,9 @@ public class BST<Key extends Comparable<Key>, Value> {
         Node left_lca = LCA(node.left, one, two);
         Node right_lca = LCA(node.right, one, two);
 
-        if (left_lca!=null && right_lca!=null)
+        if (left_lca!=null && right_lca!=null) {
             return node;
+        }
 
         return (left_lca != null) ? left_lca : right_lca;
     }

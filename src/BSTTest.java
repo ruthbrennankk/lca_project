@@ -21,7 +21,7 @@ public class BSTTest
         bst.put(6, 6);   //  \     /
         bst.put(4, 4);   //   2   4
         bst.put(5, 5);	 //        \
-                                    //         5
+        //         5
 
         assertEquals("Getting the root", "7", bst.get(7).toString());
         assertEquals("Getting a leaf", "2", bst.get(2).toString());
@@ -88,7 +88,7 @@ public class BSTTest
     @Test
     public void testFindLCA() {
         BST<Integer, Integer> bst = new BST<Integer, Integer>();
-        //assertNull("Checking in get on an empty tree", bst.findLCA(7,8));
+        assertNull("Checking in get on an empty tree", bst.findLCA(7,8));
 
         bst.put(7, 7);   //        _7_
         bst.put(8, 8);   //      /     \
@@ -100,12 +100,12 @@ public class BSTTest
         bst.put(5, 5);   //        \
                                     //        5
 
-        //assertEquals("Getting the root with root", "7", bst.findLCA(7,8).toString());
-        //assertEquals("Getting the root from branches", "7", bst.findLCA(8,5).toString());
-        //assertEquals("Getting the root of a sub branch", "3", bst.findLCA(2,6).toString());
-        //assertEquals("Getting the root of a sub branch using said root", "3", bst.findLCA(3,1).toString());
+        assertEquals("Getting the root with root", "7", bst.findLCA(7,8).toString());
+        assertEquals("Getting the root from branches", "7", bst.findLCA(8,5).toString());
+        assertEquals("Getting the root of a sub branch", "3", bst.findLCA(2,6).toString());
+        assertEquals("Getting the root of a sub branch using said root", "3", bst.findLCA(3,1).toString());
 
-        //assertNull("Testing value one not in tree",bst.findLCA(9,7));
+        assertNull("Testing value one not in tree",bst.findLCA(9,7));
         assertNull("Testing value two not in tree", bst.findLCA(7,9));
         assertNull("Testing both values not in tree", bst.findLCA(9,10));
 
